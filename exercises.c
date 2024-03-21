@@ -154,11 +154,11 @@ int parentesisBalanceados(char *cadena)
         push(pila, &cadena[i]);
         break;
       case ')':
-        if (*(char*)top(pila) != '(') return 0;
+        if(cadena[i] == ')' && *(char*)top(pila) != '(') return 0;
       case ']':
-        if(*(char*)top(pila) != '[') return 0;
+        if(cadena[i] == ']' && *(char*)top(pila) != '[') return 0;
       case '}':
-        if(*(char*)top(pila) != '{') return 0;
+        if(cadena[i] == '}' && *(char*)top(pila) != '{') return 0;
       default :
         if(top(pila) == NULL) return 0;
         pop(pila);
