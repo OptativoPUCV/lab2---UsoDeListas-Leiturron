@@ -61,10 +61,10 @@ retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
    int suma = 0;
-   int *temp = first(L);
+   void *temp = first(L);
    while(temp != NULL)
      {
-       suma += *temp;
+       suma += (*(int*)temp);
        temp = (int*)next(L);
      }
    return suma;
@@ -81,7 +81,7 @@ posiciona en el elemento anterior.
 
 void eliminaElementos(List*L, int elem)
 {
-  int* temp = first(L);
+  void* temp = first(L);
   while(temp != NULL)
     {
       if(*(int*)temp == elem) popCurrent(L);
@@ -97,7 +97,21 @@ El orden de ambas pilas se debe mantener.
 Puedes usar una pila auxiliar.
 */
 
-void copia_pila(Stack* P1, Stack* P2) {
+void copia_pila(Stack* P1, Stack* P2)
+{
+  Stack* pilaTemp = create_stack();
+  void* temp = top(P1);
+  while(temp != NULL)
+    {
+      push(pilaTemp, temp);
+      pop(P1);
+      temp = top(P1);
+    }
+  while(top(pilaTemp) != NULL)
+    {
+      push(P2, top(pilaTemp));
+      pop(pilaTemp);
+    }
 }
 
 /*
