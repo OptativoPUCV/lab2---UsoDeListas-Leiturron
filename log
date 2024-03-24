@@ -135,3 +135,9 @@ exercises.c:127:18: error: initialization of ‘Stack *’ {aka ‘List *’} fr
 cc1: all warnings being treated as errors
 Compilation failed
 a5ba128
+Sun 24 Mar 2024 12:29:23 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  9|0
+total_score: 70/70
+d7e23c7
